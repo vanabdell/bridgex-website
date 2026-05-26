@@ -227,8 +227,9 @@ export default function Hero() {
     }
 
     function resize() {
-      W = canvas.width = canvas.offsetWidth
-      H = canvas.height = canvas.offsetHeight
+  if (!canvas) return
+  W = canvas.width = canvas.offsetWidth
+  H = canvas.height = canvas.offsetHeight
 
       particles.length = 0
       for (let i = 0; i < 60; i++) {
