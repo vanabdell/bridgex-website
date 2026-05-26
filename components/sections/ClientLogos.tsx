@@ -1,59 +1,101 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 const clients = [
-  { name: 'Rabobank', bg: 'bg-zinc-900', text: 'text-orange-500', border: 'border-orange-500/20' },
-  { name: 'ABN·AMRO', bg: 'bg-zinc-900', text: 'text-teal-400', border: 'border-teal-400/20' },
-  { name: 'Danone', bg: 'bg-zinc-900', text: 'text-blue-500', border: 'border-blue-500/20' },
-  { name: 'Ahold Delhaize', bg: 'bg-zinc-900', text: 'text-green-500', border: 'border-green-500/20' },
-  { name: 'CTOUCH', bg: 'bg-zinc-900', text: 'text-white', border: 'border-zinc-600' },
-  { name: 'ONVZ', bg: 'bg-zinc-900', text: 'text-yellow-400', border: 'border-yellow-400/20' },
-  { name: 'Qbuzz', bg: 'bg-yellow-400', text: 'text-black', border: 'border-transparent' },
-  { name: 'hcs.', bg: 'bg-zinc-900', text: 'text-blue-900', border: 'border-zinc-700' },
-  { name: 'for farmers', bg: 'bg-zinc-900', text: 'text-green-500', border: 'border-green-500/20' },
-  { name: 'FITZ', bg: 'bg-blue-900', text: 'text-white', border: 'border-transparent' },
-  { name: 'Louwman', bg: 'bg-blue-900', text: 'text-white', border: 'border-transparent' },
-  { name: 'Enza Zaden', bg: 'bg-zinc-900', text: 'text-green-400', border: 'border-green-400/20' },
-  { name: 'Brunel', bg: 'bg-zinc-900', text: 'text-red-500', border: 'border-red-500/20' },
-  { name: 'SBM Offshore', bg: 'bg-zinc-900', text: 'text-orange-400', border: 'border-orange-400/20' },
-  { name: 'ConQuaestor', bg: 'bg-zinc-900', text: 'text-zinc-200', border: 'border-zinc-600' },
-  { name: 'HAN University', bg: 'bg-zinc-900', text: 'text-pink-500', border: 'border-pink-500/20' },
-  { name: 'HU Utrecht', bg: 'bg-zinc-900', text: 'text-cyan-400', border: 'border-cyan-400/20' },
-  { name: 'HvA Amsterdam', bg: 'bg-zinc-900', text: 'text-red-400', border: 'border-red-400/20' },
-  { name: 'Zeeman', bg: 'bg-yellow-400', text: 'text-black', border: 'border-transparent' },
-  { name: 'Van Lanschot', bg: 'bg-zinc-900', text: 'text-teal-600', border: 'border-teal-600/20' },
+  { name: 'Rabobank', color: '#FF6600' },
+  { name: 'ABN·AMRO', color: '#009B8D' },
+  { name: 'Danone', color: '#003087' },
+  { name: 'Ahold Delhaize', color: '#00853E' },
+  { name: 'CTOUCH', color: '#ffffff' },
+  { name: 'ONVZ', color: '#F4A81D' },
+  { name: 'Qbuzz', color: '#F4A81D' },
+  { name: 'hcs.', color: '#1A3A5C' },
+  { name: 'for farmers', color: '#5AAA28' },
+  { name: 'FITZ', color: '#ffffff' },
+  { name: 'Louwman', color: '#ffffff' },
+  { name: 'Enza Zaden', color: '#5BBD2E' },
+  { name: 'Brunel', color: '#E30613' },
+  { name: 'SBM Offshore', color: '#E86B1F' },
+  { name: 'ConQuaestor', color: '#ffffff' },
+  { name: 'HAN University', color: '#E8003D' },
+  { name: 'HU Utrecht', color: '#00A5D9' },
+  { name: 'HvA Amsterdam', color: '#E63329' },
+  { name: 'Zeeman', color: '#1A1A1A' },
+  { name: 'Van Lanschot', color: '#006868' },
 ]
+
+// Double the array for seamless infinite scroll
+const doubled = [...clients, ...clients]
 
 export default function ClientLogos() {
   return (
-    <section className="bg-zinc-900 border-t border-b border-zinc-800 py-20 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section className="bg-zinc-950 border-t border-b border-zinc-800/50 py-16 overflow-hidden">
 
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-            Ils nous font confiance
-          </h2>
-          <p className="text-zinc-400 text-sm mb-4">
-            Des organisations leaders en Europe et au Maroc
-          </p>
-          <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/25 text-yellow-400 px-4 py-2 rounded-full text-xs font-semibold">
-            ⭐ 300+ organisations &nbsp;·&nbsp; 20 000+ professionnels formés
-          </div>
-        </div>
+      {/* Header */}
+      <div className="text-center mb-10 px-6">
+        <p className="text-zinc-500 text-xs font-semibold tracking-widest uppercase mb-3">
+          Ils nous font confiance
+        </p>
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+          300+ organisations en Europe & au Maroc
+        </h2>
+        <p className="text-zinc-500 text-sm">
+          Des start-ups aux multinationales — 20 000+ professionnels formés
+        </p>
+      </div>
 
-        {/* Logo grid */}
-        <div className="grid grid-cols-4 md:grid-cols-5 gap-px bg-zinc-700 border border-zinc-700 rounded-2xl overflow-hidden">
-          {clients.map((client, i) => (
+      {/* Scrolling ticker */}
+      <div className="relative">
+
+        {/* Left fade */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 z-10"
+          style={{ background: 'linear-gradient(90deg, rgb(9,9,11) 0%, transparent 100%)' }} />
+
+        {/* Right fade */}
+        <div className="absolute right-0 top-0 bottom-0 w-32 z-10"
+          style={{ background: 'linear-gradient(270deg, rgb(9,9,11) 0%, transparent 100%)' }} />
+
+        {/* Ticker */}
+        <motion.div
+          className="flex gap-6 w-max"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: 'linear',
+          }}
+        >
+          {doubled.map((client, i) => (
             <div
               key={i}
-              className={`${client.bg} flex items-center justify-center p-6 min-h-[80px] hover:brightness-110 transition-all duration-200`}
+              className="flex-shrink-0 bg-zinc-900 border border-zinc-800 rounded-xl px-8 py-4 flex items-center justify-center min-w-[160px] hover:border-zinc-600 transition-colors"
             >
-              <span className={`${client.text} font-bold text-sm text-center leading-tight`}>
+              <span
+                className="font-bold text-sm whitespace-nowrap"
+                style={{ color: client.color }}
+              >
                 {client.name}
               </span>
             </div>
           ))}
-        </div>
-
+        </motion.div>
       </div>
+
+      {/* Stats row */}
+      <div className="flex justify-center gap-10 mt-10 flex-wrap px-6">
+        {[
+          { num: '20 000+', label: 'professionnels formés' },
+          { num: '8,5/10', label: 'score de satisfaction' },
+          { num: '300+', label: 'organisations clientes' },
+        ].map((s, i) => (
+          <div key={i} className="text-center">
+            <div className="text-yellow-400 font-bold text-xl">{s.num}</div>
+            <div className="text-zinc-500 text-xs mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+
     </section>
   )
 }

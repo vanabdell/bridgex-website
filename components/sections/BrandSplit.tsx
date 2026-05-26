@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 
 const features = {
@@ -21,12 +24,22 @@ const features = {
 
 export default function BrandSplit() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-800">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-px bg-zinc-800"
+    >
 
       {/* Academy */}
-      <div className="bg-zinc-900 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300">
-        
-        {/* Tag */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="bg-zinc-900 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300"
+      >
         <span className="inline-block bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded tracking-widest uppercase mb-6">
           Academy
         </span>
@@ -42,10 +55,17 @@ export default function BrandSplit() {
 
         <ul className="space-y-3 mb-10">
           {features.academy.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed">
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 flex-shrink-0 mt-2" />
               {item}
-            </li>
+            </motion.li>
           ))}
         </ul>
 
@@ -54,15 +74,18 @@ export default function BrandSplit() {
           Découvrir l&apos;Academy →
         </Link>
 
-        {/* Decorative hexagon */}
         <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-yellow-400/5 transition-all duration-300 group-hover:bg-yellow-400/10"
           style={{ clipPath: 'polygon(50% 0%,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%)' }} />
-      </div>
+      </motion.div>
 
       {/* Conseil */}
-      <div className="bg-zinc-950 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300">
-
-        {/* Tag */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="bg-zinc-950 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300"
+      >
         <span className="inline-block bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded tracking-widest uppercase mb-6">
           Conseil
         </span>
@@ -79,10 +102,17 @@ export default function BrandSplit() {
 
         <ul className="space-y-3 mb-10">
           {features.conseil.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed">
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: 10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.07 }}
+              className="flex items-start gap-3 text-zinc-400 text-sm leading-relaxed"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0 mt-2" />
               {item}
-            </li>
+            </motion.li>
           ))}
         </ul>
 
@@ -91,11 +121,10 @@ export default function BrandSplit() {
           Parler à un expert →
         </Link>
 
-        {/* Decorative hexagon */}
         <div className="absolute -right-8 -bottom-8 w-40 h-40 bg-yellow-400/5 transition-all duration-300 group-hover:bg-yellow-400/10"
           style={{ clipPath: 'polygon(50% 0%,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%)' }} />
-      </div>
+      </motion.div>
 
-    </div>
+    </motion.div>
   )
 }
