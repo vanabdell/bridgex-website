@@ -272,8 +272,8 @@ export default function Hero() {
     }
 
     function draw() {
-      ctx.clearRect(0, 0, W, H)
-      t += 0.005
+  if (!ctx) return
+  ctx.clearRect(0, 0, W, H)
 
       const nlX = W * 0.02
       const nlY = H * 0.92
