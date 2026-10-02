@@ -7,7 +7,7 @@ const stats = [
 
 export default function StatsBar() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 bg-yellow-400">
+    <div className="grid grid-cols-2 md:grid-cols-4 bg-yellow-400 -mt-16 relative z-10">
       {stats.map((stat, i) => (
         <div
           key={i}
