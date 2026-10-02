@@ -13,33 +13,33 @@ const stats = [
 
 const carouselSlides = [
   {
-    url: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop',
+    url: '/photos/FBNL0665.jpg',
     title: 'Formation Power BI',
-    subtitle: 'Session en présentiel',
+    subtitle: 'Session en présentiel — ABN-AMRO',
     tag: 'Academy',
   },
   {
-    url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop',
-    title: 'Atelier BI & IA',
+    url: '/photos/FBNL0672.jpg',
+    title: 'Expertise BI & Data',
     subtitle: 'Apprentissage pratique',
     tag: 'Live',
   },
   {
-    url: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop',
-    title: 'Conseil & Accompagnement',
-    subtitle: 'Impact mesurable',
+    url: '/photos/FBNL1122.jpg',
+    title: 'Networking & Communauté',
+    subtitle: 'Événements professionnels',
     tag: 'Conseil',
   },
   {
-    url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
-    title: 'Équipe & Collaboration',
-    subtitle: 'Expertise internationale',
+    url: '/photos/FBNL1726.jpg',
+    title: 'Communauté BI',
+    subtitle: '300+ organisations clientes',
     tag: 'Team',
   },
   {
-    url: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop',
-    title: 'Transformation Digitale',
-    subtitle: "De l'apprentissage à l'impact",
+    url: '/photos/FBNL1751.jpg',
+    title: 'Conférences & Événements',
+    subtitle: 'Expertise internationale',
     tag: 'Digital',
   },
 ]
@@ -91,14 +91,11 @@ function Counter({ num, suffix }: { num: number; suffix: string }) {
 
 function PhotoCarousel() {
   const [current, setCurrent] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIsTransitioning(true)
       setTimeout(() => {
         setCurrent(c => (c + 1) % carouselSlides.length)
-        setIsTransitioning(false)
       }, 800)
     }, 4000)
     return () => clearInterval(timer)
@@ -227,9 +224,9 @@ export default function Hero() {
     }
 
     function resize() {
-  if (!canvas) return
-  W = canvas.width = canvas.offsetWidth
-  H = canvas.height = canvas.offsetHeight
+      if (!canvas) return
+      W = canvas.width = canvas.offsetWidth
+      H = canvas.height = canvas.offsetHeight
 
       particles.length = 0
       for (let i = 0; i < 60; i++) {
@@ -272,8 +269,9 @@ export default function Hero() {
     }
 
     function draw() {
-  if (!ctx) return
-  ctx.clearRect(0, 0, W, H)
+      if (!ctx) return
+      ctx.clearRect(0, 0, W, H)
+      t += 0.005
 
       const nlX = W * 0.02
       const nlY = H * 0.92
