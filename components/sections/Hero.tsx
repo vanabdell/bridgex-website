@@ -464,11 +464,9 @@ export default function Hero() {
               className="text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
             >
               L&apos;expertise{' '}
-              <span className="text-yellow-400">BI & IA</span>
-              <br />
-              au service de votre
-              <br />
-              <span className="text-zinc-400">transformation digitale</span>
+<span className="text-yellow-400">BI & IA</span>
+<br />
+<span className="text-zinc-400">pour votre transformation</span>
             </motion.h1>
 
             <motion.p
