@@ -13,21 +13,27 @@ const stats = [
 
 const carouselSlides = [
   {
-    url: '/photos/FBNL0665.jpg',
+    url: '/photos/FBNL1327.jpg',
+    title: 'Sessions Interactives',
+    subtitle: 'Apprentissage engagé & participatif',
+    tag: 'Live',
+  },
+  {
+    url: '/photos/FBNL0761.jpg',
+    title: 'Power Up Live',
+    subtitle: 'Conférences & formations expertes',
+    tag: 'Academy',
+  },
+  {
+    url: '/photos/FBNL0674.jpg',
     title: 'Formation Power BI',
     subtitle: 'Session en présentiel — ABN-AMRO',
     tag: 'Academy',
   },
   {
-    url: '/photos/FBNL0672.jpg',
+    url: '/photos/FBNL1341.jpg',
     title: 'Expertise BI & Data',
     subtitle: 'Apprentissage pratique',
-    tag: 'Live',
-  },
-  {
-    url: '/photos/FBNL1122.jpg',
-    title: 'Networking & Communauté',
-    subtitle: 'Événements professionnels',
     tag: 'Conseil',
   },
   {
@@ -35,12 +41,6 @@ const carouselSlides = [
     title: 'Communauté BI',
     subtitle: '300+ organisations clientes',
     tag: 'Team',
-  },
-  {
-    url: '/photos/FBNL1751.jpg',
-    title: 'Conférences & Événements',
-    subtitle: 'Expertise internationale',
-    tag: 'Digital',
   },
 ]
 
