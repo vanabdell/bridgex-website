@@ -24,18 +24,7 @@ export default function Navbar() {
           />
         </div>
 
-        {/* Divider + subtitle */}
-        <div className="hidden md:flex flex-col justify-center border-l border-gray-200 pl-3">
-          <span
-            className="text-xs font-black tracking-wide"
-            style={{ color: '#1B3A8C' }}
-          >
-            MOROCCO
-          </span>
-          <span className="text-gray-400 text-[10px] tracking-wide">
-            Powered by BridgeX
-          </span>
-        </div>
+       
 
       </Link>
 
