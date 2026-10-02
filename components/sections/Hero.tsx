@@ -280,28 +280,24 @@ export default function Hero() {
       const cx = (nlX + maX) / 2
       const cy = nlY - H * 0.55
 
-      // NL glow left
       const nlG = ctx.createRadialGradient(nlX, nlY, 0, nlX, nlY, W * 0.35)
       nlG.addColorStop(0, 'rgba(27,58,140,0.2)')
       nlG.addColorStop(1, 'transparent')
       ctx.fillStyle = nlG
       ctx.fillRect(0, 0, W, H)
 
-      // MA glow right
       const maG = ctx.createRadialGradient(maX, maY, 0, maX, maY, W * 0.35)
       maG.addColorStop(0, 'rgba(193,39,45,0.14)')
       maG.addColorStop(1, 'transparent')
       ctx.fillStyle = maG
       ctx.fillRect(0, 0, W, H)
 
-      // Center pulse
       const cG = ctx.createRadialGradient(W/2, H*0.5, 0, W/2, H*0.5, W*0.5)
       cG.addColorStop(0, `rgba(245,200,0,${0.03 + 0.02 * Math.sin(t * 2)})`)
       cG.addColorStop(1, 'transparent')
       ctx.fillStyle = cG
       ctx.fillRect(0, 0, W, H)
 
-      // Grid
       ctx.save()
       ctx.globalAlpha = 0.04
       ctx.strokeStyle = '#ffffff'
@@ -314,7 +310,6 @@ export default function Hero() {
       }
       ctx.restore()
 
-      // Floating words
       floatingWords.forEach(w => {
         w.y += w.vy
         if (w.fadingIn) {
@@ -339,7 +334,6 @@ export default function Hero() {
         ctx.restore()
       })
 
-      // Particles
       particles.forEach(p => {
         p.x += p.vx; p.y += p.vy; p.pulse += 0.02
         if (p.x < 0 || p.x > W) p.vx *= -1
@@ -353,7 +347,6 @@ export default function Hero() {
         ctx.restore()
       })
 
-      // Bridge arch
       const pulse = 0.3 + 0.12 * Math.sin(t * 1.5)
       ctx.save()
       ctx.globalAlpha = pulse
@@ -367,7 +360,6 @@ export default function Hero() {
       ctx.stroke()
       ctx.restore()
 
-      // Bridge deck
       ctx.save()
       ctx.globalAlpha = pulse * 0.35
       ctx.strokeStyle = YELLOW
@@ -380,7 +372,6 @@ export default function Hero() {
       ctx.setLineDash([])
       ctx.restore()
 
-      // Bridge cables
       for (let i = 1; i < 10; i++) {
         const tt = i / 10
         const bx = (1-tt)*(1-tt)*nlX + 2*(1-tt)*tt*cx + tt*tt*maX
@@ -397,7 +388,6 @@ export default function Hero() {
         ctx.restore()
       }
 
-      // Traveling lights
       lights.forEach(l => {
         const p = l.reverse ? 1 - l.progress : l.progress
         const pos = getBridgePoint(p, nlX, nlY, maX, maY)
@@ -416,9 +406,7 @@ export default function Hero() {
           ctx.restore()
         })
 
-        const grad = ctx.createRadialGradient(
-          pos.x, pos.y, 0, pos.x, pos.y, l.size * 4
-        )
+        const grad = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, l.size * 4)
         grad.addColorStop(0, l.color)
         grad.addColorStop(1, 'transparent')
         ctx.save()
@@ -446,13 +434,10 @@ export default function Hero() {
   return (
     <section className="relative min-h-[95vh] flex flex-col justify-center bg-black overflow-hidden">
 
-      {/* Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto w-full px-8 pt-16 pb-8">
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — text */}
           <div className="text-left">
@@ -464,16 +449,16 @@ export default function Hero() {
               className="text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
             >
               L&apos;expertise{' '}
-<span className="text-yellow-400">BI & IA</span>
-<br />
-<span className="text-zinc-400">pour votre transformation</span>
+              <span className="text-yellow-400">BI & IA</span>
+              <br />
+              <span className="text-zinc-400">pour votre transformation</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg"
+              className="text-zinc-400 text-base leading-relaxed mb-6 max-w-lg"
             >
               Formations certifiantes Power BI, IA et Microsoft Office.
               E-learning Power Up. Conseil et accompagnement data.{' '}
@@ -482,10 +467,30 @@ export default function Hero() {
               </span>
             </motion.p>
 
+            {/* Stats — animated counters */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
+              className="grid grid-cols-2 gap-3 mb-8"
+            >
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className="border border-zinc-800 rounded-xl px-4 py-3"
+                  style={{ background: 'rgba(9,9,11,0.7)', backdropFilter: 'blur(8px)' }}
+                >
+                  <Counter num={stat.num} suffix={stat.suffix} />
+                  <div className="text-xs text-zinc-500 mt-0.5">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
               className="flex gap-4 flex-wrap mb-4"
             >
               <Link
@@ -505,7 +510,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
+              transition={{ duration: 0.7, delay: 0.65 }}
               className="text-zinc-600 text-xs"
             >
               ✓ Sans engagement &nbsp;·&nbsp;
@@ -526,29 +531,6 @@ export default function Hero() {
           </motion.div>
 
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="grid grid-cols-2 md:grid-cols-4 border border-zinc-800 rounded-2xl overflow-hidden mt-12"
-          style={{
-            background: 'rgba(9,9,11,0.85)',
-            backdropFilter: 'blur(12px)',
-          }}
-        >
-          {stats.map((stat, i) => (
-            <div
-              key={i}
-              className="py-5 px-4 text-center border-r border-zinc-800 last:border-r-0"
-            >
-              <Counter num={stat.num} suffix={stat.suffix} />
-              <div className="text-xs text-zinc-500 mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
-
       </div>
 
       {/* Scroll indicator */}
