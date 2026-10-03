@@ -5,20 +5,20 @@ import Link from 'next/link'
 
 const features = {
   academy: [
-    'E-learning via Power Up (8 000 participants actifs)',
-    'Formations en présentiel — Amersfoort, Casablanca ou chez vous',
-    'Parcours IA : AI Aware → AI Skilled → AI Expert',
-    'Préparation à la certification PL-300 Microsoft',
-    'Contenu mis à jour toutes les 2 semaines',
-    'Certificat numérique à l\'issue de chaque formation',
+    "E-learning via Power Up (8 000 participants actifs)",
+    "Formations en présentiel — Amersfoort, Casablanca ou chez vous",
+    "Parcours IA : AI Aware → AI Skilled → AI Expert",
+    "Préparation à la certification PL-300 Microsoft",
+    "Contenu mis à jour toutes les 2 semaines",
+    "Certificat numérique à l'issue de chaque formation",
   ],
   conseil: [
-    'BI & IA Maturity Scan pour évaluer votre maturité actuelle',
-    'Mise en place de pipelines de données et Microsoft Fabric',
-    'Hyperautomatisation et RPA pour réduire le travail manuel',
-    'Migration Qlik / Tableau → Power BI',
-    'Proof of Concept → déploiement progressif',
-    'Consultants avec 10–20 ans d\'expérience terrain',
+    "BI & IA Maturity Scan pour évaluer votre maturité actuelle",
+    "Mise en place de pipelines de données et Microsoft Fabric",
+    "Hyperautomatisation et RPA pour réduire le travail manuel",
+    "Migration Qlik / Tableau → Power BI",
+    "Proof of Concept → déploiement progressif",
+    "Consultants avec 10–20 ans d'expérience terrain",
   ],
 }
 
@@ -40,12 +40,8 @@ export default function BrandSplit() {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="bg-zinc-900 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300"
       >
-        <span className="inline-block bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded tracking-widest uppercase mb-6">
-          Academy
-        </span>
-
         <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-          Get Responsive <span className="text-yellow-400">Academy</span>
+          Notre <span className="text-yellow-400">Academy</span>
         </h2>
 
         <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-md">
@@ -86,12 +82,8 @@ export default function BrandSplit() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="bg-zinc-950 p-14 relative overflow-hidden group hover:bg-zinc-800 transition-colors duration-300"
       >
-        <span className="inline-block bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded tracking-widest uppercase mb-6">
-          Conseil
-        </span>
-
         <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-          Get Responsive <span className="text-yellow-400">Conseil</span>
+          Notre <span className="text-yellow-400">Conseil</span>
         </h2>
 
         <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-md">
