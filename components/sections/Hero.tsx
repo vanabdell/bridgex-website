@@ -201,7 +201,7 @@ export default function Hero() {
 
     const wordList = [
       'Power BI','BI & IA','DAX','Fabric','KPI','Data',
-      'Analytics','BridgeX','Power Up','Excel','Azure','Maturity',
+      'Analytics','Power Up','Excel','Azure','Maturity',
     ]
 
     const floatingWords: {

@@ -6,7 +6,7 @@ import Navbar from '@/components/sections/Navbar'
 const geist = Geist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BridgeX — Formation & Conseil BI & IA',
+  title: 'Formation & Conseil BI & IA — Get Responsive',
   description: 'Formations Power BI, IA et Microsoft. E-learning Power Up. Conseil data. Powered by Get Responsive.',
 }
 

@@ -30,14 +30,11 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-1">
               <div className="w-7 h-7 bg-yellow-400 flex items-center justify-center flex-shrink-0"
                 style={{ clipPath: 'polygon(50% 0%,93% 25%,93% 75%,50% 100%,7% 75%,7% 25%)' }}>
-                <span className="text-black font-bold text-xs">B</span>
+                <span className="text-black font-bold text-xs">G</span>
               </div>
-              <span className="text-white font-bold text-base">BridgeX</span>
+              <span className="text-white font-bold text-base">Get Responsive</span>
             </div>
-            <p className="text-zinc-600 text-[10px] font-semibold tracking-widest uppercase mb-4">
-              Powered by Get Responsive
-            </p>
-            <p className="text-zinc-400 text-xs leading-relaxed mb-5">
+            <p className="text-zinc-400 text-xs leading-relaxed mb-5 mt-4">
               Relier l&apos;expertise internationale à la réalité locale pour
               renforcer les organisations grâce aux compétences, à la
               stratégie et aux technologies évolutives.
@@ -115,7 +112,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-zinc-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-zinc-600 text-xs">
-            © 2026 BridgeX / Get Responsive BV — Tous droits réservés
+            © 2026 Get Responsive BV — Tous droits réservés
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-zinc-600 text-xs hover:text-zinc-400 no-underline transition-colors">
