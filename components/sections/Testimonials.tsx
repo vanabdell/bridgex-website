@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 const testimonials = [
   {
-    quote: "Grâce à BridgeX Academy, notre équipe maîtrise Power BI en quelques semaines. Les formations sont pratiques, directement applicables à nos données.",
+    quote: "Grâce à l'Academy, notre équipe maîtrise Power BI en quelques semaines. Les formations sont pratiques, directement applicables à nos données.",
     name: "Sarah M.",
     role: "Business Controller",
     company: "Danone",
@@ -15,7 +15,7 @@ const testimonials = [
     name: "Thomas K.",
     role: "Head of Analytics",
     company: "ABN·AMRO",
-    rating: 5,
+    rating: 4.5,
   },
   {
     quote: "Power Up est une plateforme excellente. Les vidéos courtes et les exercices pratiques permettent d'apprendre à son rythme. Certificat obtenu en 3 semaines.",
@@ -29,9 +29,34 @@ const testimonials = [
     name: "Marc V.",
     role: "CFO",
     company: "Louwman Group",
-    rating: 5,
+    rating: 4,
   },
 ]
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-0.5 mb-4">
+      {[1, 2, 3, 4, 5].map((star) => {
+        const filled = rating >= star
+        const half = !filled && rating >= star - 0.5
+        return (
+          <span key={star} className="text-sm relative inline-block">
+            <span className="text-zinc-700">★</span>
+            {(filled || half) && (
+              <span
+                className="absolute inset-0 text-yellow-400 overflow-hidden"
+                style={{ width: filled ? '100%' : '50%' }}
+              >
+                ★
+              </span>
+            )}
+          </span>
+        )
+      })}
+      <span className="text-zinc-500 text-xs ml-1 mt-0.5">{rating}/5</span>
+    </div>
+  )
+}
 
 export default function Testimonials() {
   return (
@@ -68,12 +93,7 @@ export default function Testimonials() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-zinc-900 border border-zinc-800 rounded-2xl p-7 hover:border-yellow-400/20 transition-colors"
             >
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(t.rating)].map((_, j) => (
-                  <span key={j} className="text-yellow-400 text-sm">★</span>
-                ))}
-              </div>
+              <Stars rating={t.rating} />
 
               {/* Quote */}
               <p className="text-zinc-300 text-sm leading-relaxed mb-6 italic">

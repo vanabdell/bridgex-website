@@ -45,7 +45,7 @@ export default function BrandSplit() {
         </span>
 
         <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-          BridgeX <span className="text-yellow-400">Academy</span>
+          Get Responsive <span className="text-yellow-400">Academy</span>
         </h2>
 
         <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-md">
@@ -91,7 +91,7 @@ export default function BrandSplit() {
         </span>
 
         <h2 className="text-4xl font-bold text-white mb-4 leading-tight">
-          BridgeX <span className="text-yellow-400">Conseil</span>
+          Get Responsive <span className="text-yellow-400">Conseil</span>
         </h2>
 
         <p className="text-zinc-400 text-sm leading-relaxed mb-8 max-w-md">
