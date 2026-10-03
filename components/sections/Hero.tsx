@@ -83,7 +83,7 @@ function Counter({ num, suffix }: { num: number; suffix: string }) {
     : Math.round(count).toLocaleString('fr-FR')
 
   return (
-    <div ref={ref} className="text-2xl font-bold text-yellow-400">
+    <div ref={ref} className="text-xl sm:text-2xl font-bold text-yellow-400">
       {display}{suffix}
     </div>
   )
@@ -103,7 +103,7 @@ function PhotoCarousel() {
 
   return (
     <div
-      className="relative w-full h-[420px] rounded-2xl overflow-hidden"
+      className="relative w-full h-[300px] sm:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden"
       style={{
         boxShadow: '0 0 60px rgba(245,200,0,0.15), 0 25px 50px rgba(0,0,0,0.5)',
       }}
@@ -143,7 +143,7 @@ function PhotoCarousel() {
               transition: 'all 0.6s ease 0.3s',
             }}
           >
-            <h3 className="text-white font-bold text-lg mb-0.5">{slide.title}</h3>
+            <h3 className="text-white font-bold text-base sm:text-lg mb-0.5">{slide.title}</h3>
             <p className="text-zinc-300 text-sm">{slide.subtitle}</p>
           </div>
         </div>
@@ -228,8 +228,12 @@ export default function Hero() {
       W = canvas.width = canvas.offsetWidth
       H = canvas.height = canvas.offsetHeight
 
+      // Fewer particles on small screens
+      const isMobile = W < 640
+      const particleCount = isMobile ? 30 : 60
+
       particles.length = 0
-      for (let i = 0; i < 60; i++) {
+      for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * W, y: Math.random() * H,
           vx: (Math.random() - 0.5) * 0.3,
@@ -254,14 +258,15 @@ export default function Hero() {
       }
 
       floatingWords.length = 0
-      for (let i = 0; i < 10; i++) {
+      const wordCount = isMobile ? 5 : 10
+      for (let i = 0; i < wordCount; i++) {
         floatingWords.push({
           x: Math.random() * W, y: Math.random() * H,
           vy: -(0.2 + Math.random() * 0.4),
           alpha: Math.random() * 0.08,
           maxAlpha: 0.05 + Math.random() * 0.08,
           word: wordList[Math.floor(Math.random() * wordList.length)],
-          size: 10 + Math.random() * 12,
+          size: isMobile ? 8 + Math.random() * 8 : 10 + Math.random() * 12,
           color: Math.random() > 0.5 ? YELLOW : '#ffffff',
           fadingIn: Math.random() > 0.5,
         })
@@ -432,12 +437,12 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[95vh] flex flex-col justify-center bg-black overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col justify-center bg-black overflow-hidden">
 
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pt-20 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
           {/* Left — text */}
           <div className="text-left">
@@ -446,7 +451,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-5"
             >
               L&apos;expertise{' '}
               <span className="text-yellow-400">BI & IA</span>
@@ -458,7 +463,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-zinc-400 text-base leading-relaxed mb-6 max-w-lg"
+              className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-lg"
             >
               Formations certifiantes Power BI, IA et Microsoft Office.
               E-learning Power Up. Conseil et accompagnement data.{' '}
@@ -472,12 +477,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid grid-cols-2 gap-3 mb-8"
+              className="grid grid-cols-2 gap-2 sm:gap-3 mb-7"
             >
               {stats.map((stat, i) => (
                 <div
                   key={i}
-                  className="border border-zinc-800 rounded-xl px-4 py-3"
+                  className="border border-zinc-800 rounded-xl px-3 sm:px-4 py-3"
                   style={{ background: 'rgba(9,9,11,0.7)', backdropFilter: 'blur(8px)' }}
                 >
                   <Counter num={stat.num} suffix={stat.suffix} />
@@ -491,17 +496,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="flex gap-4 flex-wrap mb-4"
+              className="flex flex-col sm:flex-row gap-3 mb-4"
             >
               <Link
                 href="/contact"
-                className="bg-yellow-400 text-black px-7 py-4 rounded-xl font-bold text-sm hover:bg-yellow-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-400/25 no-underline"
+                className="bg-yellow-400 text-black px-6 py-4 rounded-xl font-bold text-sm hover:bg-yellow-500 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-400/25 no-underline text-center sm:text-left"
               >
                 Essayer la démo gratuite →
               </Link>
               <Link
                 href="/academy"
-                className="border border-zinc-700 text-white px-7 py-4 rounded-xl font-medium text-sm hover:border-zinc-400 hover:bg-white/5 transition-all no-underline"
+                className="border border-zinc-700 text-white px-6 py-4 rounded-xl font-medium text-sm hover:border-zinc-400 hover:bg-white/5 transition-all no-underline text-center sm:text-left"
               >
                 Voir le catalogue 2026
               </Link>
@@ -520,7 +525,7 @@ export default function Hero() {
 
           </div>
 
-          {/* Right — carousel */}
+          {/* Right — carousel: hidden on mobile, shown from lg */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -531,6 +536,17 @@ export default function Hero() {
           </motion.div>
 
         </div>
+
+        {/* Mobile-only carousel — shown below text on small screens */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="block lg:hidden mt-8"
+        >
+          <PhotoCarousel />
+        </motion.div>
+
       </div>
 
       {/* Scroll indicator */}

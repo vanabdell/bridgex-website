@@ -1,17 +1,9 @@
 'use client'
 
-const StepIcon = ({ d, d2 }: { d: string; d2?: string }) => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-    <path d={d} />
-    {d2 && <path d={d2} />}
-  </svg>
-)
-
 const steps = [
   {
     num: '1',
     icon: (
-      // Graduation cap / structured learning
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
         <path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" />
@@ -23,7 +15,6 @@ const steps = [
   {
     num: '2',
     icon: (
-      // Play circle / e-learning
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" opacity="0.7" />
@@ -35,7 +26,6 @@ const steps = [
   {
     num: '3',
     icon: (
-      // Bar chart / data practice
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" />
         <line x1="12" y1="20" x2="12" y2="4" />
@@ -49,7 +39,6 @@ const steps = [
   {
     num: '4',
     icon: (
-      // Users / coaching
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
@@ -63,7 +52,6 @@ const steps = [
   {
     num: '5',
     icon: (
-      // Trending up / business impact
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
         <polyline points="17 6 23 6 23 12" />
@@ -77,18 +65,18 @@ const steps = [
 
 export default function BlendedLearning() {
   return (
-    <section className="bg-zinc-950 py-24 px-6">
+    <section className="bg-zinc-950 py-16 sm:py-24 px-5 sm:px-6">
       <div className="max-w-6xl mx-auto">
 
         {/* Header */}
-        <div className="mb-14">
+        <div className="mb-10 sm:mb-14">
           <div className="flex items-center gap-3 mb-3">
             <div className="w-5 h-px bg-yellow-400" />
             <p className="text-yellow-400 text-xs font-semibold tracking-widest uppercase">
               Notre méthode en 5 étapes
             </p>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3">
             Blended Learning : vers une adoption durable
           </h2>
           <p className="text-zinc-400 text-sm leading-relaxed max-w-xl">
@@ -97,15 +85,15 @@ export default function BlendedLearning() {
           </p>
         </div>
 
-        {/* Steps row */}
+        {/* Steps — vertical on mobile, horizontal on md+ */}
         <div className="flex flex-col md:flex-row items-stretch gap-0">
           {steps.map((step, i) => (
-            <div key={i} className="flex md:flex-row items-stretch flex-1">
+            <div key={i} className="flex flex-col md:flex-row items-stretch flex-1">
 
               {/* Card */}
               <div
                 className={`
-                  group relative flex-1 flex flex-col gap-4 p-6 rounded-2xl border
+                  group relative flex-1 flex flex-col gap-4 p-5 sm:p-6 rounded-2xl border
                   transition-all duration-200 cursor-default
                   hover:-translate-y-1
                   ${step.isOutcome
@@ -168,18 +156,31 @@ export default function BlendedLearning() {
                 `} />
               </div>
 
-              {/* Connector arrow */}
+              {/* Connector — horizontal arrow on desktop, vertical line on mobile */}
               {i < steps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center w-8 flex-shrink-0 mb-10">
-                  <div className="relative w-full">
-                    <div className="h-px bg-gradient-to-r from-yellow-400/30 via-yellow-400/60 to-yellow-400/30 w-full" />
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                      <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
-                        <path d="M1 1L5 5L1 9" stroke="#F5C800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+                <>
+                  {/* Desktop: horizontal arrow between cards */}
+                  <div className="hidden md:flex items-center justify-center w-8 flex-shrink-0 mb-10">
+                    <div className="relative w-full">
+                      <div className="h-px bg-gradient-to-r from-yellow-400/30 via-yellow-400/60 to-yellow-400/30 w-full" />
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
+                          <path d="M1 1L5 5L1 9" stroke="#F5C800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Mobile: vertical line between cards */}
+                  <div className="flex md:hidden justify-center py-1">
+                    <div className="relative flex flex-col items-center">
+                      <div className="w-px h-6 bg-gradient-to-b from-yellow-400/60 to-yellow-400/20" />
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className="mt-0.5">
+                        <path d="M1 1L5 5L9 1" stroke="#F5C800" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.6"/>
                       </svg>
                     </div>
                   </div>
-                </div>
+                </>
               )}
 
             </div>
