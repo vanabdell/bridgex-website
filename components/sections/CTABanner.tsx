@@ -22,7 +22,7 @@ export default function CTABanner() {
           avantage compétitif
         </h2>
         <p className="text-black/60 text-sm mb-8 max-w-xl mx-auto leading-relaxed">
-          Rejoignez 300+ organisations qui font confiance à BridgeX pour
+          Rejoignez 300+ organisations qui font confiance à Get Responsive pour
           leur transformation data & IA. Démo gratuite — réponse sous 24h.
         </p>
 
