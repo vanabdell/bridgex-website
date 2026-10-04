@@ -436,7 +436,7 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
       <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pt-20 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left — text */}
           <div className="text-left">
@@ -453,25 +453,12 @@ export default function Hero() {
               <span className="text-zinc-400">pour votre transformation</span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-lg"
-            >
-              Formations certifiantes Power BI, IA et Microsoft Office.
-              E-learning Power Up. Conseil et accompagnement data.{' '}
-              <span className="text-zinc-300 font-medium">
-                De l&apos;apprentissage à l&apos;impact mesurable.
-              </span>
-            </motion.p>
-
             {/* Stats — animated counters */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid grid-cols-2 gap-2 sm:gap-3 mb-7"
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="grid grid-cols-2 gap-2 sm:gap-3 mb-5"
             >
               {stats.map((stat, i) => (
                 <div
@@ -484,6 +471,19 @@ export default function Hero() {
                 </div>
               ))}
             </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-6 max-w-lg"
+            >
+              Formations certifiantes Power BI, IA et Microsoft Office.
+              E-learning Power Up. Conseil et accompagnement data.{' '}
+              <span className="text-zinc-300 font-medium">
+                De l&apos;apprentissage à l&apos;impact mesurable.
+              </span>
+            </motion.p>
 
             {/* Buttons */}
             <motion.div
@@ -524,7 +524,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+            className="hidden lg:block self-start pt-2"
           >
             <PhotoCarousel />
           </motion.div>
