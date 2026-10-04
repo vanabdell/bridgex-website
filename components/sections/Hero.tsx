@@ -435,7 +435,7 @@ export default function Hero() {
 
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
 
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pt-20 pb-10">
+      <div className="relative z-10 max-w-6xl mx-auto w-full px-5 sm:px-8 pt-12 pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left — text */}
