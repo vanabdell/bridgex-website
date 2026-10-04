@@ -25,16 +25,10 @@ const carouselSlides = [
     tag: 'Academy',
   },
   {
-    url: '/photos/FBNL0674.jpg',
-    title: 'Formation Power BI',
+    url: '/photos/FBNL0864.jpg',
+    title: 'Expertise BI & Data',
     subtitle: 'Session en présentiel — ABN-AMRO',
     tag: 'Academy',
-  },
-  {
-    url: '/photos/FBNL1341.jpg',
-    title: 'Expertise BI & Data',
-    subtitle: 'Apprentissage pratique',
-    tag: 'Conseil',
   },
   {
     url: '/photos/FBNL1726.jpg',
